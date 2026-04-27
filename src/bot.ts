@@ -29,6 +29,7 @@ import {
   DAILY_COST_BUDGET,
   HOURLY_TOKEN_BUDGET,
   PROJECT_ROOT,
+  VOICE_MODE_DEFAULT,
 } from './config.js';
 import { clearSession, getRecentConversation, getRecentMemories, getRecentTaskOutputs, getSession, getSessionConversation, logToHiveMind, pinMemory, unpinMemory, setSession, lookupWaChatId, saveWaMessageMap, saveTokenUsage, saveCompactionEvent, getCompactionCount } from './db.js';
 import { logger } from './logger.js';
@@ -115,8 +116,12 @@ import {
 import { getSlackConversations, getSlackMessages, sendSlackMessage, SlackConversation } from './slack.js';
 import { getWaChats, getWaChatMessages, sendWhatsAppMessage, WaChat } from './whatsapp.js';
 
-// Per-chat voice mode toggle (in-memory, resets on restart)
-const voiceEnabledChats = new Set<string>();
+// Per-chat voice mode toggle (in-memory, resets on restart).
+// If VOICE_MODE_DEFAULT is truthy, seed ALLOWED_CHAT_ID on startup so voice
+// replies survive launchd restarts without re-sending /voice on.
+const voiceEnabledChats = new Set<string>(
+  VOICE_MODE_DEFAULT && ALLOWED_CHAT_ID ? [ALLOWED_CHAT_ID] : [],
+);
 
 // Per-chat model override (in-memory, resets on restart)
 // When not set, uses CLI default (Opus via Max/OAuth)

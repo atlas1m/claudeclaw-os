@@ -37,6 +37,7 @@ const envConfig = readEnvFile([
   'WARROOM_ENABLED',
   'WARROOM_PORT',
   'STREAM_STRATEGY',
+  'VOICE_MODE_DEFAULT',
 ]);
 
 // ── Multi-agent support ──────────────────────────────────────────────
@@ -85,6 +86,12 @@ export const SLACK_USER_TOKEN =
 export const GROQ_API_KEY = envConfig.GROQ_API_KEY ?? '';
 export const ELEVENLABS_API_KEY = envConfig.ELEVENLABS_API_KEY ?? '';
 export const ELEVENLABS_VOICE_ID = envConfig.ELEVENLABS_VOICE_ID ?? '';
+
+// If truthy, voice reply mode is ON at startup for ALLOWED_CHAT_ID.
+// Accepted: "on", "true", "1", "yes" (case-insensitive).
+export const VOICE_MODE_DEFAULT = ['on', 'true', '1', 'yes'].includes(
+  (envConfig.VOICE_MODE_DEFAULT ?? '').toLowerCase(),
+);
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
