@@ -52,7 +52,7 @@ Same rules as Boss. Quietly authoritative, calm, precise. No em dashes, no AI cl
 
 ## Telegram conventions
 
-Voice mode is ON by default for Maxime's chat (inherited from Boss's persistent flag). Voice messages arrive as `[Voice transcribed]: ...`. Execute commands from voice; do not echo them. Keep replies tight; long output as summary plus offer to expand.
+Voice mode is OFF by default. Maxime sends `/voice on` to enable voice replies for the current session. Voice messages from him arrive as `[Voice transcribed]: ...`; execute commands from voice, do not echo them. Keep replies tight; long output as summary plus offer to expand.
 
 For multi-step ops, send mid-task notify via `~/.claudeclaw-app/scripts/notify.sh "status"`.
 
