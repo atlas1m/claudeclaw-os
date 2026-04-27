@@ -15,23 +15,15 @@ CLAUDECLAW_CONFIG="${CLAUDECLAW_CONFIG:-$HOME/.claudeclaw}"
 echo "=== ClaudeClaw Agent Creator ==="
 echo ""
 
-# Step 1: Pick a template or start blank
+# Step 1: Pick template (this fork ships only the blank scaffold)
 echo "Available templates:"
-echo "  1. comms     -- Email, Slack, WhatsApp, YouTube comments, community forums, LinkedIn"
-echo "  2. content   -- YouTube, LinkedIn, writing, trend research"
-echo "  3. ops       -- Calendar, billing, Stripe, Gumroad, admin"
-echo "  4. research  -- Deep research, academic, competitive intel"
-echo "  5. blank     -- Start from the _template"
+echo "  5. blank     -- Start from _template (this fork removed the comms / content / ops / research scaffolds; create per-project agents from the blank)"
 echo ""
-read -p "Pick a template (1-5): " TEMPLATE_NUM
+read -p "Press Enter or type 5: " TEMPLATE_NUM
 
 case $TEMPLATE_NUM in
-  1) TEMPLATE="comms" ;;
-  2) TEMPLATE="content" ;;
-  3) TEMPLATE="ops" ;;
-  4) TEMPLATE="research" ;;
-  5) TEMPLATE="_template" ;;
-  *) echo "Invalid choice"; exit 1 ;;
+  ""|5) TEMPLATE="_template" ;;
+  *) echo "Invalid choice (this fork only ships option 5 / blank). Press Enter to accept."; exit 1 ;;
 esac
 
 # Step 2: Name the agent

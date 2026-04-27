@@ -705,24 +705,11 @@ export function getWarRoomHtml(token: string, chatId: string, warroomPort: numbe
     <div class="table-rim"></div>
     <div class="stage-avatar" data-agent="main" style="--seat-x:0px;--seat-y:-150px">
       <img src="/warroom-avatar/main?token=${safeToken}" alt="Main">
-      <div class="stage-nameplate">MAIN</div>
+      <div class="stage-nameplate">BOSS</div>
     </div>
-    <div class="stage-avatar" data-agent="research" style="--seat-x:-250px;--seat-y:-40px">
-      <img src="/warroom-avatar/research?token=${safeToken}" alt="Research">
-      <div class="stage-nameplate">RESEARCH</div>
-    </div>
-    <div class="stage-avatar" data-agent="comms" style="--seat-x:250px;--seat-y:-40px">
-      <img src="/warroom-avatar/comms?token=${safeToken}" alt="Comms">
-      <div class="stage-nameplate">COMMS</div>
-    </div>
-    <div class="stage-avatar" data-agent="content" style="--seat-x:-165px;--seat-y:135px">
-      <img src="/warroom-avatar/content?token=${safeToken}" alt="Content">
-      <div class="stage-nameplate">CONTENT</div>
-    </div>
-    <div class="stage-avatar" data-agent="ops" style="--seat-x:165px;--seat-y:135px">
-      <img src="/warroom-avatar/ops?token=${safeToken}" alt="Ops">
-      <div class="stage-nameplate">OPS</div>
-    </div>
+    <!-- Specialist seats (research/comms/content/ops) removed: this fork uses
+         on-demand project agents only. Project-agent seats are added dynamically
+         by the agent voice bridge when an agent connects. -->
   </div>
 </div>
 
